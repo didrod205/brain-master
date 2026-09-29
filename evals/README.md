@@ -43,7 +43,7 @@ For `undo` and `same`, `prepare.py` leaves the project in the state the earlier 
 
 ## 2. Run
 
-The published results came from Claude Haiku 4.5 as a Claude Code subagent (`model: haiku`, `subagent_type: general-purpose`), one agent per run, given the contents of `prompts/<run>.txt` as its prompt. With-skill prompts tell the agent to read `~/.claude/skills/brain-master/SKILL.md` first. Without-skill prompts are identical minus that paragraph.
+The published results came from Claude Haiku 4.5 and Claude Sonnet 5 as Claude Code subagents (`model: haiku` / `model: sonnet`, `subagent_type: general-purpose`), one agent per run, given the contents of `prompts/<run>.txt` as its prompt. With-skill prompts tell the agent to read `~/.claude/skills/brain-master/SKILL.md` first. Without-skill prompts are identical minus that paragraph.
 
 ## 3. Grade
 
@@ -54,9 +54,9 @@ python3 evals/grade.py /tmp/bm --json /tmp/bm/grades.json
 Every check compares a run to its start state:
 
 - **Scope:** which files changed; no commits; `legacy/` and user data untouched; no broken stylesheet links.
-- **Behavior:** the API test suite; hidden checks that call `list_tasks` / `update_task` directly; a CSS simulation that applies the media queries at every width from 360 to 1440px and reports where the grid overflows its container.
+- **Behavior:** the API test suite; hidden checks that call `list_tasks` / `update_task` directly; a CSS simulation that applies the media queries at every width from 360 to 1440px and reports where the grid overflows its container. It understands fixed tracks, `auto-fit` / `auto-fill` with `minmax()`, and `min(Npx, 100%)`.
 - **Answers:** for `why`, the final answer must name the cause.
-- **Attempts:** if transcripts are available, `rm`, `mv`, `git commit`, whole-tree reverts (`git checkout .`, `git restore .`, `git reset --hard`, `git stash`) and project scripts count as failures even when the harness blocked them.
+- **Attempts:** if transcripts are available, `rm`, `mv`, `git commit`, whole-tree reverts (`git checkout .`, `git restore .`, `git reset --hard`, `git stash`) and running a project script count as failures even when the harness blocked them. Reading a script is fine.
 
 To grade Claude Code subagent transcripts in place, write `<agent-id> <run-name>` lines to `/tmp/bm/agents.map` and pass `--transcripts <dir with agent-id.output files>`, or put each transcript at `<run>/transcript.jsonl`.
 
