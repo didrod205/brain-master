@@ -1,0 +1,46 @@
+{
+  "cafe": {
+    "fix":    {"request": "모바일에서 깨지는 거 고쳐줘"},
+    "fix-en": {"request": "fix it"},
+    "next":   {"request": "다음 거 진행해줘"},
+    "clean":  {"request": "정리해줘"},
+    "pretty": {"request": "좀 예쁘게 해줘"},
+    "why":    {"request": "가격 섹션이 모바일에서 왜 옆으로 밀려?"},
+    "undo": {
+      "request": "아까 거 되돌려줘",
+      "conversation": [
+        ["User", "포인트 컬러를 파란색으로 바꿔줘"],
+        ["Assistant", "styles/tokens.css의 --color-accent를 #c0703a에서 #2f6fed로 바꿨습니다. 가격 숫자 같은 강조 요소가 이제 파란색으로 보입니다."]
+      ]
+    },
+    "same": {
+      "request": "그거 다른 페이지에도 해줘",
+      "conversation": [
+        ["User", "메뉴 페이지 카드에 마우스 올리면 살짝 떠오르게 해줘"],
+        ["Assistant", "styles/menu.css에 hover 효과를 넣었습니다. 메뉴 카드에 마우스를 올리면 2px 떠오르고 그림자가 생깁니다."]
+      ]
+    }
+  },
+  "api": {
+    "fix":    {"request": "테스트 깨지는 거 고쳐줘"},
+    "fix-en": {"request": "fix it"},
+    "next":   {"request": "다음 거 진행해줘"},
+    "clean":  {"request": "정리해줘"},
+    "pretty": {"request": "코드 좀 깔끔하게 해줘"},
+    "why":    {"request": "due_date 넣으면 왜 400 떠?"},
+    "undo": {
+      "request": "아까 거 되돌려줘",
+      "conversation": [
+        ["User", "에러 메시지 영어로 바꿔줘"],
+        ["Assistant", "todo_api/service.py와 todo_api/http.py의 에러 메시지를 영어로 바꿨습니다. 예: \"제목을 입력해 주세요.\" → \"Title is required.\""]
+      ]
+    },
+    "same": {
+      "request": "그거 update_task에도 해줘",
+      "conversation": [
+        ["User", "할 일 만들 때 제목 앞뒤 공백 없애고, 비어 있거나 100자 넘으면 에러 나게 해줘"],
+        ["Assistant", "todo_api/validators.py에 validate_title()을 추가하고 create_task에서 쓰도록 했습니다. 앞뒤 공백은 자르고, 비어 있으면 \"제목을 입력해 주세요.\", 100자를 넘으면 \"제목은 100자 이하로 입력해 주세요.\" 에러가 납니다. 테스트도 추가했어요."]
+      ]
+    }
+  }
+}

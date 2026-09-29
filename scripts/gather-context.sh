@@ -140,12 +140,14 @@ done
 cat <<'RULES'
 
 ## Before you act (brain-master hard rules)
-1. Broad request with no target (clean up / improve / 정리 / 개선)? Change nothing; offer 2-3 concrete options.
-2. Delete, move, rename, merge, commit, push, deploy, install? Only if the request explicitly says so.
+1. Broad request with no target (make it better/cleaner/nicer, 정리, 개선)? Change nothing; offer 2-3 concrete options.
+2. Delete, move, rename, merge, commit, push, deploy, install? Only if the request explicitly says so. Leave edits uncommitted.
 3. "Next" / "continue"? Exactly one item, then stop.
 4. Never invent facts only the user knows (names, prices, addresses, hours, contacts).
 5. Calling something unused? grep the whole project for references first.
 6. Copying existing code? Check it against the standing rules above first.
+7. A question (why / what / 왜 / 어떻게)? Answer it with evidence and change nothing; offer the fix.
+8. Undo / revert? Revert only your own earlier change. Check each file's diff; other uncommitted edits may be the user's.
 Next: write the one-line "Understood: ... — based on ..." before changing anything.
 RULES
 

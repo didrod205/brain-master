@@ -35,11 +35,13 @@ this skill.
 Check these before every change. They exist because short requests are exactly
 where a model is most tempted to guess big.
 
-1. **Broad request, no target** ("clean up", "improve", "tidy", "정리해줘",
-   "개선해줘", "손봐줘") → change nothing yet. Reply with two or three concrete
-   options you found in the project and let the user pick.
+1. **Broad request, no target**: any request to make things better, cleaner,
+   nicer or tidier without saying what ("clean up", "improve", "tidy",
+   "정리해줘", "개선해줘", "손봐줘") → change nothing yet. Reply with two or three
+   concrete options you found in the project and let the user pick.
 2. **Delete, move, rename, merge files, commit, push, deploy, install** → only
    when the request explicitly asks for it. Otherwise leave it and mention it.
+   Leave your edits uncommitted for the user to review.
 3. **"Next" / "continue" / "진행해줘"** → exactly one item, then stop and say
    what comes after it.
 4. **Facts only the user knows** (real names, prices, addresses, hours,
@@ -49,6 +51,13 @@ where a model is most tempted to guess big.
    nothing.
 6. **Before copying existing code**, check it against the standing rules. Copy
    the structure, not a rule violation.
+7. **A question** ("why…?", "what does…?", "왜 …?", "어떻게 …?") → the answer is
+   the deliverable. Explain the cause with evidence and change nothing; end by
+   offering the fix.
+8. **Undo / revert** → revert only the change you made earlier in the
+   conversation. Other uncommitted edits may be the user's own work in
+   progress, so look at each file's diff first and edit your lines back rather
+   than running `git checkout` or `git restore` on whole files.
 
 The sections below explain how to apply these and everything else.
 

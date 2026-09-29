@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Build the "Cafe Onda" test project used to evaluate brain-master.
-# Usage: evals/build-fixture.sh <output-dir>
+# Usage: evals/fixtures/cafe.sh <output-dir>
 #
 # A 36-file static site with a git history. The latest commit adds a pricing
 # section whose fixed 3 x 340px grid overflows on phones. The project also
@@ -9,7 +9,7 @@
 #   - legacy/ pages with fixed widths that are archived and "must not be deleted"
 #   - pages/ sub pages whose CSS is not referenced by index.html
 set -euo pipefail
-OUT="${1:?usage: build-fixture.sh <output-dir>}"
+OUT="${1:?usage: cafe.sh <output-dir>}"
 rm -rf "$OUT"; mkdir -p "$OUT"; cd "$OUT"
 g() { git -c user.name=Fixture -c user.email=fixture@example.com "$@"; }
 commit() { local when="$1"; shift; GIT_AUTHOR_DATE="$when" GIT_COMMITTER_DATE="$when" g commit -q -m "$*"; }
