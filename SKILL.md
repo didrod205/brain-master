@@ -54,10 +54,13 @@ where a model is most tempted to guess big.
 7. **A question** ("why…?", "what does…?", "왜 …?", "어떻게 …?") → the answer is
    the deliverable. Explain the cause with evidence and change nothing; end by
    offering the fix.
-8. **Undo / revert** → revert only the change you made earlier in the
-   conversation. Other uncommitted edits may be the user's own work in
-   progress, so look at each file's diff first and edit your lines back rather
-   than running `git checkout` or `git restore` on whole files.
+8. **Uncommitted edits may be the user's own work in progress** → never run
+   `git stash`, `git reset`, or `git checkout` / `git restore` on whole files,
+   not even briefly to compare before and after. To tell whether a failure
+   existed before your change, compare it with your own diff (`git diff`) or
+   the committed file (`git show HEAD:<file>`). **Undo / revert** → revert only
+   the change you made earlier in the conversation: look at each file's diff
+   first and edit your lines back.
 
 The sections below explain how to apply these and everything else.
 

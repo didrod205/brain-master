@@ -147,7 +147,7 @@ cat <<'RULES'
 5. Calling something unused? grep the whole project for references first.
 6. Copying existing code? Check it against the standing rules above first.
 7. A question (why / what / 왜 / 어떻게)? Answer it with evidence and change nothing; offer the fix.
-8. Undo / revert? Revert only your own earlier change. Check each file's diff; other uncommitted edits may be the user's.
+8. Uncommitted edits may be the user's: no git stash / reset / whole-file checkout or restore, not even to compare. Undo? Revert only your own lines; check each file's diff first.
 Next: write the one-line "Understood: ... — based on ..." before changing anything.
 RULES
 
